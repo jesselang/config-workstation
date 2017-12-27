@@ -1,0 +1,5 @@
+---
+- name: install tmux
+  package:
+    name: tmux
+  become: yes

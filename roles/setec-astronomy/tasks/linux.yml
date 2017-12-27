@@ -1,0 +1,6 @@
+---
+- name: install keepassx
+  package:
+    name: keepassx
+    state: present
+  become: yes

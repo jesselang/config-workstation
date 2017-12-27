@@ -1,0 +1,30 @@
+---
+- name: install console-setup
+  package:
+    name: console-setup
+    state: present
+  become: yes
+
+- name: set keyboard layout
+  copy:
+    src: "{{ ansible_os_family | lower }}"
+    dest: /etc/default/keyboard
+  register: keyboard_layout
+  become: yes
+
+# udevadm trigger --subsystem-match=input --action=change
+- name: restart keyboard-setup
+  service:
+    name: keyboard-setup
+    state: restarted
+  become: yes
+  when: keyboard_layout | changed
+
+  #- name: set gnome/cinnamon keyboard settings and bindings
+  #  command: "gsettings set {{ item.key }} {{ item.value.key }} '{{ item.value.value }}'"
+  #  with_dict: "{{ keyboard_settings }}"
+# Cinnamon stores keyboard options is dconf.
+# /org/cinnamon/desktop/keybindings/media-keys
+# /org/cinnamon/desktop/keybindings/wm
+# /org/cinnamon/setting-daemon/peripherals/keyboard
+# /org/grome/libgnomekbd/keyboard

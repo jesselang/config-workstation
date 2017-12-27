@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  connection: local
+  pre_tasks:
+    - name: Include system/OS family specific vars
+      include_vars: "vars/{{ item | lower }}.yml"
+      with_items:
+        - all
+        - "{{ ansible_system }}"
+        - "{{ ansible_os_family }}"
+
+  roles:
+    - home-directory
+    - keyboard-layout
+    - package-management
+    - network-filesystems
+    - shell
+    - source-control
+    - powerline-fonts
+    - tmux
+    - source-editor
+    - dotfiles
+    - graphics-support
+    - windowing-system
+    - desktop-environment
+    - desktop-manager
+
+
+    - setec-astronomy
+    - web-browser
+    - document-scanning
+
+    # roles from galaxy
+    - role: ansible-role-golang
+      # required to write to /usr/local
+      become: yes
+
+    - role: ansible-role-docker
+      become: yes
+

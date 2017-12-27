@@ -1,0 +1,13 @@
+---
+- name: Install desktop environment
+  package:
+    name: "{{ desktop_environment }}"
+    state: present
+  become: yes
+
+- name: Install desktop environment extras
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ desktop_environment_extras }}"
+  become: yes

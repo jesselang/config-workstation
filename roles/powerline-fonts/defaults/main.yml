@@ -1,0 +1,3 @@
+---
+powerline_fonts_temp_directory: "{{ ansible_user_dir }}/tmp/powerline-fonts"
+

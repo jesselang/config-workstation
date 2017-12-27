@@ -1,0 +1,27 @@
+---
+- name: Add apt key
+  apt_key:
+    url: https://dl.google.com/linux/linux_signing_key.pub
+    state: present
+  become: yes
+
+- name: Add package repo for browser
+  apt_repository:
+    repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    update_cache: yes
+    state: present
+  become: yes
+
+#- name: Update apt cache
+#  apt:
+#    update_cache: yes
+#  become: yes
+
+# TODO: Can't install chrome because it's saying it can't be authenticated.
+# key signing.
+- name: Install web browser
+  apt:
+    name: "{{ web_browser }}"
+    state: latest
+  become: yes
+  

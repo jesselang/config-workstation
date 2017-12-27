@@ -1,0 +1,13 @@
+---
+- name: Don't install suggestions from APT
+  file:
+    dest: /etc/apt/apt.conf.d/99disable-suggests
+    content: 'APT::Install-Suggests "false";'
+    mode: '0644'
+  become: yes
+
+- name: Install aptitude
+  package:
+    name: aptitude
+    state: present
+  become: yes

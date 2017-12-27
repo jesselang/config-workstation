@@ -1,0 +1,5 @@
+---
+- include: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_system | lower }}/{{ ansible_product_name | replace(' ', '_') | lower }}.yml"
+    - unsupported.yml

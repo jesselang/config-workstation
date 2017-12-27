@@ -1,0 +1,14 @@
+---
+- name: Install desktop manager
+  package:
+    name: "{{ desktop_manager }}"
+    state: present
+  become: yes
+
+- name: Enable desktop manager
+  service:
+    name: "{{ desktop_manager }}"
+    enabled: yes
+    state: started
+  become: yes
+  when: desktop_manager_enabled

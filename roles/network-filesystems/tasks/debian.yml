@@ -1,0 +1,20 @@
+---
+- name: install autofs
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - autofs
+    - nfs-client
+  become: yes
+
+- name: ensure services are running
+  service:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+  with_items:
+    - autofs
+    - rpcbind
+    - rpc-statd
+  become: yes

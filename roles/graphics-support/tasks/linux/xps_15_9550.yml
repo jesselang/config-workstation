@@ -1,0 +1,17 @@
+---
+# $ lspci |grep -i 3d
+# 01:00.0 3D controller: NVIDIA Corporation GM107M [GeForce GTX 960M] (rev ff)
+
+- name: Install nvidia-driver
+  package:
+    name: nvidia-driver
+    state: present
+  become: yes
+
+- name: Install bumblebee
+  package:
+    name: bumblebee-nvidia
+    state: present
+  become: yes
+
+# TODO: add user to bumblebee group

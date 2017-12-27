@@ -1,0 +1,6 @@
+---
+- name: Install source editor
+  apt:
+    package: vim
+    state: present
+  become: yes

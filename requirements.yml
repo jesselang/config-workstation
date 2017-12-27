@@ -1,0 +1,9 @@
+---
+# gtrafimenkov.golang
+- src: https://github.com/gtrafimenkov/ansible-role-golang.git
+  version: v0.0.4
+
+# mongrelion.docker
+- src: https://github.com/mongrelion/ansible-role-docker.git
+  version: a7040aac63c8567048a3fbb6437199cca40457aa
+

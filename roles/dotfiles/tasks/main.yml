@@ -1,0 +1,10 @@
+---
+- name: Retrieve dotfiles
+  git:
+    repo: "https://github.com/jesselang/dotfiles.git"
+    dest: "{{ ansible_user_dir }}/.dotfiles"
+    remote: origin-ro
+
+- name: Install dotfiles
+  shell: "cd {{ ansible_user_dir }} && sh {{ ansible_user_dir }}/.dotfiles/install.sh"
+

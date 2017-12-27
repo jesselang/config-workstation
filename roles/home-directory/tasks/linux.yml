@@ -1,0 +1,11 @@
+---
+- name: remove dumb boilerplate directories (keep Desktop and Downloads)
+  file:
+    dest: "{{ ansible_user_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    - Documents
+    - Music
+    - Pictures
+    - Templates
+    - Videos

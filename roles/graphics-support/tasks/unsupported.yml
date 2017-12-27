@@ -1,0 +1,2 @@
+---
+- fail: "{{ ansible_os_family }} is not supported by this role"

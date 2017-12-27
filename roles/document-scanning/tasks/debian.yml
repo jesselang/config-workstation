@@ -1,0 +1,6 @@
+---
+- name: install simple-scan
+  package:
+    name: simple-scan
+    state: present
+  become: yes

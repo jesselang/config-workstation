@@ -1,0 +1,11 @@
+---
+- name: install zsh
+  package:
+    name: zsh
+  become: yes
+
+- name: ohmyzsh
+  git:
+    repo: 'https://github.com/robbyrussell/oh-my-zsh.git'
+    dest: '{{ ansible_user_dir }}/.oh-my-zsh'
+    update: no

@@ -1,0 +1,11 @@
+---
+- name: Install windowing system
+  package:
+    name: "{{ windowing_system }}"
+    state: present
+
+- name: Install windowing system drivers
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ windowing_system_drivers }}"

@@ -1,0 +1,11 @@
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
+XKBMODEL="pc105"
+XKBLAYOUT="us"
+XKBVARIANT="dvorak"
+# xkboptions found in /usr/share/X11/xkb/rules/base.lst
+XKBOPTIONS="caps:escape,altwin:swap_alt_win"
+
+BACKSPACE="guess"

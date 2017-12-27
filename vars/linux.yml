@@ -1,0 +1,12 @@
+---
+desktop_environment: cinnamon
+desktop_environment_extras:
+  - blueman # Bluetooth support
+
+desktop_manager: lightdm
+desktop_manager_enabled: yes
+windowing_system: xorg
+windowing_system_drivers:
+  - xserver-xorg-video-intel
+source_control:
+  - git
